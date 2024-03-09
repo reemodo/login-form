@@ -12,8 +12,8 @@ const salt = bcrypt.genSaltSync(saltRounds);
 
 //rest of code
 
-function hashPassoword (user){
-  const hashedPassword = bcrypt.hashSync(user.password, salt);
+function hashPassoword (password){
+  const hashedPassword = bcrypt.hashSync(password, salt);
   return  hashedPassword;
 }
 
