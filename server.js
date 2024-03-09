@@ -19,6 +19,8 @@ app.use('/', loginRouter);
 app.use('/favorites', favRouter);
 
 
-app.listen(3000, () => {
+app.use('/sounds', favRouter);
+
+app.listen(9000, () => {
   console.log('Server started on port 3000');
 });

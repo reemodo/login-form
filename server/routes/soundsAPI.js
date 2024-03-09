@@ -6,21 +6,14 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'my_secret_key';
 
 
-// router.get('/animals',(req, res) => {
-//   try {
-//     res.send({message:"some animal"});
-//   } catch (error) {
-//     console.log(error)
-//     res.status(401).send({ message: 'Something went wrong' });
-//   }
-// });
+
 router.get('/animals', authenticateToken,(req, res) => {
   try {
     const user = findUser(req.user.id,req.user.username)
     console.log(user)
-    const favAnimal = {"animal":user.animal}
-    console.log(favAnimal)
-    res.send(favAnimal);
+    const animalSound = {"sound":"wowow"}
+    console.log(animalSound)
+    res.send(animalSound);
   } catch (error) {
     console.log(error)
     res.status(401).send({ message: 'Invalid token' });

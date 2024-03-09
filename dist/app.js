@@ -10,12 +10,13 @@ loginForm.addEventListener('submit', function(event) {
   const password = document.querySelector('#password').value;
 
   $.ajax({
-    url: '/login',method: 'POST',
+    url: "/login",
+    method: 'POST',
     dataType: 'json',contentType: 'application/json',
     data: JSON.stringify({ username, password }),
     success: function(data) {
+      localStorage.setItem('token', data.accessToken);
       window.location.href = '/fav_animals/animals.html';
-
     },
     error: function(error, textStatus, errorThrown) {
       if (error.status === 401) {
